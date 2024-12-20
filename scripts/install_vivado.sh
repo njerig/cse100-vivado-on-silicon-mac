@@ -39,8 +39,22 @@ fi
 if /home/user/installer/xsetup -c "/home/user/scripts/install_configs/${vivado_version}.txt" -b Install -a "${eula_args}"
 then
     f_echo "Vivado was successfully installed."
-    f_echo "Run start_container.sh to launch it."
 else
     f_echo "An error occurred during installation. Please run cleanup.sh and try again."
     exit 1
 fi
+
+f_echo "Installing Basys 3 board support"
+cd /home/user/
+wget https://github.com/Digilent/vivado-boards/archive/master.zip?_ga=2.29799935.1336857273.1734661539-482620408.1734661539
+unzip *master.zip*
+rm -rf *master.zip*
+cd /home/user/Xilinx/Vivado/*
+mkdir -p data/boards/board_files
+cp -rf /home/user/vivado-boards-master/new/board_files/* data/boards/board_files/
+cd -
+rm -rf vivado-boards-master
+f_echo "Basys 3 board support installed"
+
+f_echo "Done."
+f_echo "Run start_container.sh to launch the container, then VNC to run Vivado."

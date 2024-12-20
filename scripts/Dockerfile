@@ -17,7 +17,8 @@ RUN apt-get install -y --no-install-recommends \
     dbus dbus-x11 x11-utils xorg alsa-utils mesa-utils net-tools \
     libgl1-mesa-dri gtk2-engines lxappearance fonts-droid-fallback sudo firefox \
     ubuntu-gnome-default-settings curl gnupg lxde arc-theme \
-    gtk2-engines-murrine gtk2-engines-pixbuf gnome-themes-standard nano xterm
+    gtk2-engines-murrine gtk2-engines-pixbuf gnome-themes-standard nano xterm \
+    wget
 
 # install dependencies for Vivado
 RUN apt-get install -y --no-install-recommends \
