@@ -13,4 +13,7 @@ installer/
 .dbus/
 .vnc/
 .xsession-errors
+.bash_history
+.digilent*
+.wget*
 scripts/install_bin
