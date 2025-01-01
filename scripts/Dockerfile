@@ -45,8 +45,10 @@ RUN mv /usr/bin/lxpolkit /usr/bin/lxpolkit.bak
 # setup TigerVNC
 RUN sed -i 's/-iconic/-nowin/g' /etc/X11/Xtigervnc-session
 RUN mkdir /home/user/.vnc
+RUN mkdir -p /home/user/Xilinx
 RUN echo "password" | vncpasswd -f > /vncpasswd
 RUN chown user /vncpasswd
+RUN chown user /home/user/Xilinx
 RUN chmod 600 /vncpasswd
 
 # Set the locale, because Vivado crashes otherwise
@@ -55,6 +57,6 @@ RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
 ENV LANG=en_US.UTF-8
 ENV LANGUAGE=en_US:en
 ENV LC_ALL=en_US.UTF-8
-
+ENV PAYLOAD_LOCATION_FROM_USER=/home/user/Xilinx/payload
 # Without this, Vivado will crash when synthesizing
 ENV LD_PRELOAD="/lib/x86_64-linux-gnu/libudev.so.1 /lib/x86_64-linux-gnu/libselinux.so.1 /lib/x86_64-linux-gnu/libz.so.1 /lib/x86_64-linux-gnu/libgdk-x11-2.0.so.0"
