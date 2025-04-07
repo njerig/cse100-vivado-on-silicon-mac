@@ -45,6 +45,8 @@ inside the terminal. The container can be stopped by pressing `Ctrl-C` inside th
 
 USB flashing support is limited, see the "USB Connection" paragraph below.
 
+**Important note: Your Basys 3 board must be in JTAG mode (i.e. change JP1 to JTAG) in order to write a bitstream to it using the code in this repository.**
+
 If you want to exchange files with the container, you need to store them inside the "vivado-on-silicon-mac-main" folder. Inside Vivado, the files will be accessible via the "/home/user" folder.
 
 You can allocate more/less memory and CPU resources to Vivado by going to the Resources tab in the Docker settings.
