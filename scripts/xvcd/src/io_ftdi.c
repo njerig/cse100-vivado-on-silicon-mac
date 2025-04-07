@@ -13,7 +13,7 @@
 #define PORT_TDI            0x02
 #define PORT_TDO            0x04
 #define PORT_TMS            0x08
-#define PORT_MISC           0x90
+#define PORT_MISC           0x80
 #define IO_OUTPUT (PORT_MISC|PORT_TCK|PORT_TDI|PORT_TMS)
 
 #define IO_DEFAULT_OUT     (0xe0)               /* Found to work best for some FTDI implementations */
