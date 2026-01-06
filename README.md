@@ -26,11 +26,15 @@ cd ~/Desktop
 git clone https://github.com/njerig/cse100-vivado-on-silicon-mac.git
 ```
 2. Copy the Vivado installer into the cloned repository.
-3. Run the setup script:
+3. If you have a high resolution display, set the following environment variable.
+```
+export XINSTALLER_SCALE=2
+```
+4. Run the setup script:
 ```
 ./scripts/setup.sh
 ```
-4. Follow the instructions (in yellow) from the terminal.
+5. Follow the instructions (in yellow) from the terminal.
 
 Note that the installation requires You to log into Your AMD account. When asked to, allow "Terminal" to access data of other apps (the installation may succeed regardless).
 
