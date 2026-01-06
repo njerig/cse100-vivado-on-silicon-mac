@@ -1,4 +1,4 @@
-# vivado-on-silicon-mac
+# cse100-vivado-on-silicon-mac
 This is a tool for installing [Vivado™](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools.html) on Arm®-based Apple Silicon Macs in a Rosetta-enabled virtual machine. It is in no way associated with Xilinx or AMD.
 
 *Updated for 2024!*
@@ -15,31 +15,29 @@ Due to unexpected behaviour in Rosetta emulation, most versions of macOS 14 (inc
 ## How to install
 Expect the installation process to last about one to two hours and download ~20 GB for the web installer.
 
-### Preparations
-You first need to install [Docker®](https://www.docker.com/products/docker-desktop/) (make sure to choose "Apple Chip" instead of "Intel Chip"). You may find it useful to disable the option "Open Docker Dashboard when Docker Desktop starts".
-
-Rosetta must be installed on your Mac. The installer will ask you to install it if it is not already installed.
-
-You will also need the Vivado installer file (the "Linux® Self Extracting Web Installer").
-
+### Prerequisites
+1. Download [Docker®](https://www.docker.com/products/docker-desktop/): Make sure to select "Apple Chip" instead of "Intel Chip". You'll also need to install Rosetta (which it will ask to do if you don't have it installed already).
+2. Download the Vivado installer binary (specifically the "Linux Self Extracting Web Installer").
 
 ### Installation
-1. Download this [tool](https://github.com/ichi4096/vivado-on-silicon-mac/archive/refs/heads/main.zip).
-2. Extract the ZIP file.
-3. Copy the Vivado installer into the extracted folder.
-4. Open a terminal. Then copy & paste:
+1. Clone this repository in a folder of your choosing. For example, on your desktop:
 ```
-cd Downloads/vivado-on-silicon-mac-main
-caffeinate -dim zsh ./scripts/setup.sh
+cd ~/Desktop
+git clone https://github.com/njerig/cse100-vivado-on-silicon-mac.git
 ```
-5. Follow the instructions (in yellow) from the terminal.
+2. Copy the Vivado installer into the cloned repository.
+3. Run the setup script:
+```
+./scripts/setup.sh
+```
+4. Follow the instructions (in yellow) from the terminal.
 
 Note that the installation requires You to log into Your AMD account. When asked to, allow "Terminal" to access data of other apps (the installation may succeed regardless).
 
 ### Usage
 Run
 ```
-Downloads/vivado-on-silicon-mac-main/scripts/start_container.sh
+Desktop/vivado-on-silicon-mac-main/scripts/start_container.sh
 ```
 inside the terminal. The container can be stopped by pressing `Ctrl-C` inside the terminal or by logging out inside the container.
 
