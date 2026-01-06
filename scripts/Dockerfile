@@ -8,27 +8,41 @@ RUN apt-get update && apt-get upgrade -y
 # https://bobcares.com/blog/debian_frontendnoninteractive-docker/
 # https://github.com/moby/moby/issues/4032#issuecomment-34597177
 ARG DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Check and install ca-certificates earlier if Rosetta gets broken
-RUN apt -y install ca-certificates
+RUN set -eux; \
+    apt-get update; \
+    apt-get upgrade -y; \
+    apt install -y --no-install-recommends ca-certificates; \
+    rm -rf /var/lib/apt/lists/*
 
 # install gui
-RUN apt-get install -y --no-install-recommends \
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
     dbus dbus-x11 x11-utils xorg alsa-utils mesa-utils net-tools \
     libgl1-mesa-dri gtk2-engines lxappearance fonts-droid-fallback sudo firefox \
     ubuntu-gnome-default-settings curl gnupg lxde arc-theme \
     gtk2-engines-murrine gtk2-engines-pixbuf gnome-themes-standard nano xterm \
-    wget
+    wget; \
+    rm -rf /var/lib/apt/lists/*
 
 # install dependencies for Vivado
-RUN apt-get install -y --no-install-recommends \
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
     python3-pip python3-dev build-essential git gcc-multilib g++ \
     ocl-icd-opencl-dev libjpeg62-dev libc6-dev-i386 graphviz make \
-    unzip libtinfo5 xvfb libncursesw5 locales libswt-gtk-4-jni
+    unzip libtinfo5 xvfb libncursesw5 locales libswt-gtk-4-jni; \
+    rm -rf /var/lib/apt/lists/*
 
 # install vnc server (with recommended installs)
-RUN apt-get install -y \
-    tigervnc-standalone-server tigervnc-xorg-extension
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y --no-install-recommends \
+    tigervnc-standalone-server tigervnc-xorg-extension tigervnc-tools; \
+    rm -rf /var/lib/apt/lists/*
 
 # create user "user" with password "password"
 RUN useradd --create-home --shell /bin/bash --user-group --groups adm,sudo user
