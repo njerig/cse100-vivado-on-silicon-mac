@@ -32,6 +32,7 @@ export XINSTALLER_SCALE=2
 ```
 4. Run the setup script:
 ```
+cd cse100-vivado-on-silicon-mac
 ./scripts/setup.sh
 ```
 5. Follow the instructions (in yellow) from the terminal.
