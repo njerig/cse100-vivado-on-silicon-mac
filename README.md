@@ -42,9 +42,9 @@ Note that the installation requires You to log into Your AMD account. When asked
 ### Usage
 Run
 ```
-Desktop/vivado-on-silicon-mac-main/scripts/start_container.sh
+./scripts/start_container.sh
 ```
-inside the terminal. The container can be stopped by pressing `Ctrl-C` inside the terminal or by logging out inside the container.
+inside the terminal from the `cse100-vivado-on-silicon-mac` folder. The container can be stopped by pressing `Ctrl-C` inside the terminal or by logging out inside the container.
 
 USB flashing support is limited, see the "USB Connection" paragraph below.
 
