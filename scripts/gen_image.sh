@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 # Generate the container image using Apple's container CLI
 

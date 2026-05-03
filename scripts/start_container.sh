@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 # starts the container (using Apple's container CLI) and xvcd for USB forwarding
 
